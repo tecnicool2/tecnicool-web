@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECNICOOL | Instalaciones, Revisiones y Mantenimientos</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        :root {
+            --azul-oscuro: #0b1f3a;
+            --azul-medio: #087ea4;
+            --azul-claro: #00c2ff;
+            --fondo: #f4f7fb;
+            --texto: #1f2937;
+        }
+
+        body {
+            background: var(--fondo);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--azul-oscuro);
+            color: white;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 32px;
+        }
+        .logo h1 span {
+            color: var(--azul-claro);
+        }
+        .logo p {
+            color: #bde7ff;
+            font-size: 14px;
+        }
+
+        .btn-solicitar {
+            background: var(--azul-claro);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .btn-solicitar:hover {
+            background: #009ed1;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(180deg, var(--azul-oscuro), #0f3460);
+            color: white;
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            border: 2px solid var(--azul-claro);
+            color: var(--azul-claro);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .hero h2 span {
+            color: var(--azul-claro);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 35px;
+            color: #e0f2fe;
+        }
+
+        .boton-azul {
+            display: inline-block;
+            background: var(--azul-claro);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 8px;
+        }
+        .boton-azul:hover {
+            background: #009ed1;
+        }
+        .boton-borde {
+            display: inline-block;
+            border: 2px solid white;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 8px;
+        }
+        .boton-borde:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .caracteristicas {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+            font-size: 17px;
+        }
+        .caracteristicas div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* SERVICIOS */
+        .servicios-seccion {
+            padding: 60px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 38px;
+            color: var(--azul-oscuro);
+            margin-bottom: 40px;
+        }
+        .titulo-seccion span {
+            color: var(--azul-claro);
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tarjeta-servicio {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+        .tarjeta-servicio .icono {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+        .tarjeta-servicio h3 {
+            font-size: 22px;
+            color: var(--azul-oscuro);
+            margin-bottom: 8px;
+        }
+        .tarjeta-servicio p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* PROBLEMAS */
+        .problemas {
+            background: var(--azul-oscuro);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            margin: 50px 0;
+        }
+        .problemas h3 {
+            font-size: 26px;
+            margin-bottom: 30px;
+        }
+        .problemas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .problema-item {
+            font-size: 16px;
+        }
+        .problema-item span {
+            font-size: 35px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .btn-revision {
+            display: block;
+            background: var(--azul-claro);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* FORMULARIO */
+        .formulario-seccion {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        .formulario-seccion h3 {
+            font-size: 28px;
+            color: var(--azul-oscuro);
+            margin-bottom: 8px;
+        }
+        .formulario-seccion p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, select, textarea {
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        button {
+            padding: 16px;
+            background: var(--azul-claro);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* POR QUE ELEGIRNOS */
+        .elegirnos {
+            padding: 0 5% 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .elegirnos h2 {
+            font-size: 38px;
+            color: var(--azul-oscuro);
+            margin-bottom: 40px;
+        }
+        .elegirnos h2 span {
+            color: var(--azul-claro);
+        }
+        .elegir-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .elegir-tarjeta {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+        .elegir-tarjeta .icono {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        .elegir-tarjeta h3 {
+            font-size: 22px;
+            color: var(--azul-oscuro);
+            margin-bottom: 8px;
+        }
+        .elegir-tarjeta p {
+            color: #666;
+        }
+
+        /* LLAMADO */
+        .llamado {
+            background: var(--azul-claro);
+            color: white;
+            text-align: center;
+            padding: 50px 5%;
+        }
+        .llamado h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .llamado p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+        .btn-llamado {
+            display: inline-block;
+            background: white;
+            color: var(--azul-oscuro);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--azul-oscuro);
+            color: white;
+            padding: 50px 5%;
+        }
+        .footer-contenido {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
+        }
+        .footer-logo h2 {
+            font-size: 28px;
+        }
+        .footer-logo h2 span {
+            color: var(--azul-claro);
+        }
+        .footer-logo p {
+            color: #bde7ff;
+            margin-top: 8px;
+        }
+        footer h4 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer ul li {
+            margin-bottom: 8px;
+        }
+        footer ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        .contacto-footer p {
+            margin-bottom: 8px;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <h1>TECNI<span>COOL</span></h1>
+            <p>Instalaciones, revisiones y mantenimientos</p>
+        </div>
+        <a href="#solicitar" class="btn-solicitar">📅 SOLICITAR SERVICIO</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="etiqueta">CONFORT, CALIDAD Y CONFIANZA</div>
+        <h2>¿Tu aire acondicionado <span>necesita atención?</span></h2>
+        <p>Instalación, mantenimiento y reparación de aires acondicionados en Barranquilla.</p>
+        <a href="#solicitar" class="boton-azul">📅 SOLICITAR SERVICIO</a>
+        <a href="https://wa.me/573243874975" target="_blank" class="boton-borde">💬 HABLAR POR WHATSAPP</a>
+
+        <div class="caracteristicas">
+            <div>🛡️ Técnicos confiables</div>
+            <div>⚡ Respuesta rápida</div>
+            <div>✅ Servicio profesional</div>
+            <div>🏆 Calidad en cada trabajo</div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="servicios-seccion">
+        <h2 class="titulo-seccion">¿Qué <span>servicio</span> necesitas?</h2>
+
+        <div class="servicios-grid">
+            <div class="tarjeta-servicio">
+                <div class="icono">❄️</div>
+                <h3>Mantenimiento</h3>
+                <p>Limpieza profunda y revisión para un mejor rendimiento.</p>
+            </div>
+            <div class="tarjeta-servicio">
+                <div class="icono">🛠️</div>
+                <h3>Reparación</h3>
+                <p>Solucionamos fallas y problemas de funcionamiento.</p>
+            </div>
+            <div class="tarjeta-servicio">
+                <div class="icono">📐</div>
+                <h3>Instalación</h3>
+                <p>Instalaciones seguras y profesionales.</p>
+            </div>
+            <div class="tarjeta-servicio">
+                <div class="icono">🧊</div>
+                <h3>Carga de refrigerante</h3>
+                <p>Revisión del sistema y carga cuando sea necesario.</p>
+            </div>
+            <div class="tarjeta-servicio">
+                <div class="icono">✨</div>
+                <h3>Limpieza profunda</h3>
+                <p>Eliminamos polvo, suciedad y malos olores.</p>
+            </div>
+        </div>
+
+        <!-- PROBLEMAS -->
+        <div class="problemas">
+            <h3>¿Tu aire presenta alguno de estos problemas?</h3>
+            <div class="problemas-grid">
+                <div class="problema-item"><span>❄️</span> No enfría</div>
+                <div class="problema-item"><span>💧</span> Bota agua</div>
+                <div class="problema-item"><span>🔊</span> Hace ruido</div>
+                <div class="problema-item"><span>🔥</span> Huele mal</div>
+                <div class="problema-item"><span>🔌</span> Se apaga</div>
+                <div class="problema-item"><span>⚡</span> Consume mucho</div>
+            </div>
+            <a href="#solicitar" class="btn-revision">SOLICITA UNA REVISIÓN</a>
+        </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="servicios-seccion" id="solicitar">
+        <div class="formulario-seccion">
+            <h3>📋 Solicita tu servicio</h3>
+            <p>Déjanos tus datos y nos pondremos en contacto contigo.</p>
+
+            <form onsubmit="enviarWhatsApp(); return false;">
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <input type="tel" id="telefono" placeholder="Número de WhatsApp" required>
+                <select id="servicio" required>
+                    <option value="">¿Qué servicio necesitas?</option>
+                    <option>Mantenimiento</option>
+                    <option>Reparación</option>
+                    <option>Instalación</option>
+                    <option>Carga de refrigerante</option>
+                    <option>Limpieza profunda</option>
+                </select>
+                <input type="text" id="direccion" placeholder="Dirección o ubicación" required>
+                <textarea id="mensaje" placeholder="Cuéntanos qué problema tiene tu aire acondicionado"></textarea>
+                <button type="submit">📱 ENVIAR SOLICITUD POR WHATSAPP</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- POR QUÉ ELEGIRNOS -->
+    <section class="elegirnos">
+        <h2>Trabajamos para que tengas <span>más confort</span></h2>
+        <div class="elegir-grid">
+            <div class="elegir-tarjeta">
+                <div class="icono">🛡️</div>
+                <h3>Servicio confiable</h3>
+                <p>Trabajo responsable y atención personalizada.</p>
+            </div>
+            <div class="elegir-tarjeta">
+                <div class="icono">👨‍🔧</div>
+                <h3>Experiencia técnica</h3>
+                <p>Soluciones para hogares y negocios.</p>
+            </div>
+            <div class="elegir-tarjeta">
+                <div class="icono">⚡</div>
+                <h3>Respuesta rápida</h3>
+                <p>Agendamos tu visita de forma sencilla.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LLAMADO A LA ACCIÓN -->
+    <section class="llamado">
+        <h2>¿Necesitas atención para tu aire acondicionado?</h2>
+        <p>Llámanos o escríbenos por WhatsApp.</p>
+        <a href="https://wa.me/573243874975" target="_blank" class="btn-llamado">📱 324 387 4975</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-contenido">
+            <div class="footer-logo">
+                <h2>TECNI<span>COOL</span></h2>
+                <p>Instalaciones, revisiones y mantenimientos.</p>
+            </div>
+            <div>
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#solicitar">Solicitar servicio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Servicios</h4>
+                <ul>
+                    <li>Mantenimiento</li>
+                    <li>Reparación</li>
+                    <li>Instalación</li>
+                    <li>Carga de refrigerante</li>
+                </ul>
+            </div>
+            <div class="contacto-footer">
+                <h4>Contáctanos</h4>
+                <p>📱 324 387 4975</p>
+                <p>📍 Barranquilla, Atlántico</p>
+                <p>💬 WhatsApp disponible</p>
+            </div>
+        </div>
+        <div class="copyright">© 2026 TECNICOOL. Todos los derechos reservados.</div>
+    </footer>
+
+    <script>
+        function enviarWhatsApp() {
+            let nombre = document.getElementById("nombre").value;
+            let telefono = document.getElementById("telefono").value;
+            let servicio = document.getElementById("servicio").value;
+            let direccion = document.getElementById("direccion").value;
+            let mensaje = document.getElementById("mensaje").value;
+
+            let texto = "¡Hola! Soy " + nombre + ".\n" +
+                "Teléfono: " + telefono + "\n" +
+                "Servicio: " + servicio + "\n" +
+                "Dirección: " + direccion + "\n" +
+                "Mensaje: " + mensaje;
+
+            // ✅ TU NÚMERO YA CONFIGURADO
+            let numero = "573243874975";
+
+            let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(texto);
+            window.open(url, "_blank");
+        }
+    </script>
+
+</body>
+</html>
